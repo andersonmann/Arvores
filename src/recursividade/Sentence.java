@@ -20,15 +20,12 @@ public class Sentence {
 	 */
 	public boolean isPalindrome() {
 		int length = text.length();
-
 		// Separate case for shortest strings.
 		if (length <= 1)
 			return true;
-
 		// Get first and last characters, converted to lowercase.
 		char first = Character.toLowerCase(text.charAt(0));
 		char last = Character.toLowerCase(text.charAt(length - 1));
-
 		if (Character.isLetter(first) && Character.isLetter(last)) {
 			// Both are letters.
 			if (first == last) {
@@ -47,5 +44,31 @@ public class Sentence {
 			Sentence shorter = new Sentence(text.substring(1));
 			return shorter.isPalindrome();
 		}
+	}
+
+	public boolean isPalindrome(int start, int end) {
+		// Caso separado para substrings de comprimento 0 e 1.
+		if (start >= end)
+			return true;
+		// Converte o primeiro e o ultimo caractere em letras minusculas.
+		char first = Character.toLowerCase(text.charAt(start));
+		char last = Character.toLowerCase(text.charAt(end));
+		if (Character.isLetter(first) && Character.isLetter(last)) {
+			if (first == last) {
+				// Testa substring que nao contem letras correspondentes.
+				return isPalindrome(start + 1, end - 1);
+			} else
+				return false;
+		} else if (!Character.isLetter(last)) {
+			// Testa substring que nao contem ultimo caractere.
+			return isPalindrome(start, end - 1);
+		} else {
+			// Testa substring que nao contem o primeiro caractere.
+			return isPalindrome(start + 1, end);
+		}
+	}
+	
+	public boolean isPalindromeAux(){
+		return isPalindrome(0, text.length() -1);
 	}
 }
