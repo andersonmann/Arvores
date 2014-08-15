@@ -15,6 +15,6 @@ public class Fatorial {
 			return 1;
 		}
 		// Caso contrario, o método recursivo é chamado
-		return n * fatorialRecursivo(n - 1);
+		return n * fatorialRecursivo(n - 1);		
 	}
 }

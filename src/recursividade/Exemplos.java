@@ -40,8 +40,8 @@ public class Exemplos {
 		System.out.println("Testes de recursividade.");
 		// regressivo(10);
 		// progressivo(1, 15);
-		//int[] vs = { 1, 2, 3, 4, 5 };
-		//System.out.println(somar(vs));
+		// int[] vs = { 1, 2, 3, 4, 5 };
+		// System.out.println(somar(vs));
 		List<Integer> ls = new ArrayList<Integer>();
 		// TODO converter array em lista
 		ls.add(1);
@@ -49,22 +49,21 @@ public class Exemplos {
 		ls.add(3);
 		ls.add(4);
 		ls.add(5);
-		//System.out.println(ls);
+		// System.out.println(ls);
 		System.out.println(somarLista(ls));
-		//System.out.println(ls);
+		// System.out.println(ls);
 	}
 
-	private static int somarLista(List<Integer> ls) {
-		return somarListaImpl(new ArrayList<Integer>(ls));
-		//return somarListaImpl(ls);
+	private static int somarLista(List<Integer> lista) {
+		return somarListaImpl(new ArrayList<Integer>(lista));
 	}
 
-	private static int somarListaImpl(List<Integer> ls) {
-		if (ls.isEmpty()) {
+	private static int somarListaImpl(List<Integer> lista) {
+		if (lista.isEmpty()) {
 			return 0;
 		} else {
-			int elem = ls.remove(0);
-			return elem + somarListaImpl(ls);
+			int elem = lista.remove(0);
+			return elem + somarListaImpl(lista);
 		}
 	}
 
