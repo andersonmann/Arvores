@@ -25,9 +25,9 @@ public class Cabine<E> {
 		// public void add(Object element) {
 		if (count == capacity) { // se o array está cheio chama setCapacity
 			setCapacity(capacity * 2); // dobra o tamanho do array
+			data[count] = element; // adicona o elemento na posição de count
+			count++; // incrementa o contador
 		}
-		data[count] = element; // adicona o elemento na posição de count
-		count++; // incrementa o contador
 	}
 
 	@SuppressWarnings("unchecked")
