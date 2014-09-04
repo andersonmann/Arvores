@@ -25,7 +25,7 @@ public class Cabine<E> {
 	}
 
 	public void substituirElemento(int index, E element) {
-		if (getPosicao(index).equals("0")) {
+		//if (getPosicao(index).equals("0")) {
 			for (int i = 0; i < lista.size(); i++) {
 				if (index == 0 && lista.get(index + 1).equals("0")) { // insere na primeira posicao
 					lista.set(index, element);
@@ -39,12 +39,40 @@ public class Cabine<E> {
 					lista.set(index, element);
 					break;
 				}
-				else{
-					lista.set(index, element);
+				if(encontraPosicaoLivre() != -1){ // insere em uma posicao livre
+					lista.set(encontraPosicaoLivre(), element);
+					break;
 				}
 			}
 		}
+	//}
+	/*
+	 *  Corrigir o metodo encontraPosicaoLivre, ele está adicionando na primeira posicao 
+	 *  livre, sem antes verificar se tem mais alguma posicao com visinhas livres.
+	 */
+			
+	public int encontraPosicaoLivre() {		
+		for (int pos = 0; pos < lista.size(); pos++) { // percorre a lista até o final		
+			if(lista.get(pos).equals("0")){
+				return pos;
+			}							
+		}
+		return -1;
 	}
+
+	
+	/*public int encontraPosicaoLivre(){		
+		for(E element: lista){
+			if(element.equals("0")){
+				return getPosicao2(element);
+			}
+		}
+		return -1;
+	}*/
+	
+	public int getPosicao2(E element) {
+		return lista.indexOf(element);
+	}	
 
 	public E getPosicao(int posicao) {
 		return lista.get(posicao);
