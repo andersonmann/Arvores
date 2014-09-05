@@ -23,9 +23,18 @@ public class Cabine<E> {
 	public void preencherPosicao(int index, E element){
 		lista.set(index, element);
 	}
+	
+	public void entrarCabine(E element){
+		for (int i = 0; i < lista.size(); i++){
+			if(lista.get(i).equals("0") && lista.get(i+1).equals("0")){
+				lista.set(i, element); // insere na primeira posicao
+			}
+			
+		}
+	}
+	
 
-	public void substituirElemento(int index, E element) {
-		//if (getPosicao(index).equals("0")) {
+	public void substituirElemento(int index, E element) {		
 			for (int i = 0; i < lista.size(); i++) {
 				if (index == 0 && lista.get(index + 1).equals("0")) { // insere na primeira posicao
 					lista.set(index, element);
@@ -43,15 +52,27 @@ public class Cabine<E> {
 					lista.set(encontraPosicaoLivre(), element);
 					break;
 				}
+				else if(encontraPosicaoLivre2() != -1){ // insere em uma posicao livre
+					lista.set(encontraPosicaoLivre2(), element);
+					break;
+				}				
 			}
-		}
-	//}
+		}	
+	
 	/*
 	 *  Corrigir o metodo encontraPosicaoLivre, ele está adicionando na primeira posicao 
 	 *  livre, sem antes verificar se tem mais alguma posicao com visinhas livres.
 	 */
-			
-	public int encontraPosicaoLivre() {		
+	public int encontraPosicaoLivre(){
+		for (int pos = 0; pos < lista.size(); pos++) { // percorre a lista até o final
+			if(lista.get(pos-1).equals("0") && lista.get(pos+1).equals("0")){
+				return pos+2;
+			}
+		}
+		return -1;
+	}	
+	
+	public int encontraPosicaoLivre2() {		
 		for (int pos = 0; pos < lista.size(); pos++) { // percorre a lista até o final		
 			if(lista.get(pos).equals("0")){
 				return pos;

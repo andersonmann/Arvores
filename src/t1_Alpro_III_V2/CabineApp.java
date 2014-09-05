@@ -15,17 +15,20 @@ public class CabineApp {
 		lista.preencherPosicao(16, "R");
 		lista.preencherPosicao(10, "R");
 		lista.preencherPosicao(14, "R");*/
-		lista.preencherPosicao(0, "URSS");lista.preencherPosicao(1, "URSS");lista.preencherPosicao(2, "URSS");
+		/*lista.preencherPosicao(0, "URSS");lista.preencherPosicao(1, "URSS");lista.preencherPosicao(2, "URSS");
 		lista.preencherPosicao(3, "URSS");lista.preencherPosicao(4, "URSS");lista.preencherPosicao(5, "URSS");
 		lista.preencherPosicao(6, "URSS");lista.preencherPosicao(7, "URSS");lista.preencherPosicao(8, "URSS");
 		lista.preencherPosicao(9, "URSS");lista.preencherPosicao(10, "URSS");lista.preencherPosicao(11, "URSS");
 		lista.preencherPosicao(12, "URSS");lista.preencherPosicao(13, "URSS");lista.preencherPosicao(14, "URSS");
-		//lista.preencherPosicao(17, "URSS");//lista.preencherPosicao(17, "URSS");//lista.preencherPosicao(16, "URSS")
+		lista.preencherPosicao(15, "URSS");lista.preencherPosicao(16, "URSS");lista.preencherPosicao(17, "URSS");
+		lista.preencherPosicao(18, "URSS");*/
 		System.out.println("Elementos "+lista.getLista());
+		/*
+		 * lista.substituirElemento(0, "AMER");  está falhando para a posicao 0
+		 * lista.substituirElemento(index, element"); está falhando quando todas posicoes estao ocupadas
+		 */		
 		
-		//lista.substituirElemento(17, "AMER");
-		lista.substituirElemento(8, "AMER");
-		
+		//lista.substituirElemento(8, "A");		
 		
 		System.out.println("Elementos "+lista.getLista());	
 		
@@ -41,7 +44,7 @@ public class CabineApp {
 		//System.out.println("Quantidade de elementos na lista " + lista.getTotal());
 		//System.out.println("Elementos na lista: " + lista.toString());		
 		long depois = System.currentTimeMillis();
-		double tempo = (depois - antes);
+		long tempo = (depois - antes);
 		System.out.println();
 		System.out.println("Tempo de processamento: " + tempo + " milisegundos");
 	}
