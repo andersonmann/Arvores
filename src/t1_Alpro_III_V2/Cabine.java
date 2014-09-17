@@ -24,17 +24,28 @@ public class Cabine<E> {
 		lista.set(index, element);
 	}
 	
-	public void entrarCabine(E element){
+	public void entrarCabineV2(E element){ 
 		for (int i = 0; i < lista.size(); i++){
-			if(lista.get(i).equals("0") && lista.get(i+1).equals("0")){
+			if(i == 0 && lista.get(i+1).equals("0")){
 				lista.set(i, element); // insere na primeira posicao
+				break;
+			}
+			if(i == lista.size()-1 && lista.get(lista.size()-2).equals("0")){
+				lista.set(i, element);
+				break;
+			}			
+			if(lista.get(i).equals("0") && lista.get(i+1).equals("0") && lista.get(i+2).equals("0")){ // vai dar erro no fim da lista!
+				preencherPosicao(i+1, element);  // encontra a primeira cabine com as duas visinhas vazias  
+				break;  						 // e insere na lista (evitando ter que percorrer toda lista).
+			}
+			if(lista.get(i).equals("0")){
+				lista.set(i, element);
 			}
 			
 		}
-	}
-	
+	}	
 
-	public void substituirElemento(int index, E element) {		
+	public void entrarCabineV1(int index, E element) {		
 			for (int i = 0; i < lista.size(); i++) {
 				if (index == 0 && lista.get(index + 1).equals("0")) { // insere na primeira posicao
 					lista.set(index, element);
