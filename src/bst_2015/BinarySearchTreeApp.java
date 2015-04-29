@@ -1,4 +1,4 @@
-package Arvores;
+package bst_2015;
 
 public class BinarySearchTreeApp {
 

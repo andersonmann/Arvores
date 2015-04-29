@@ -1,4 +1,4 @@
-package Arvores;
+package bst_2015;
 
 import static org.junit.Assert.*;
 
