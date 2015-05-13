@@ -13,6 +13,7 @@ public class BinarySearchTreeApp {
 		t.insert(5);
 		t.insert(15);
 		t.insert(25);
+		System.out.println(t);
 		
 		
 		
@@ -62,8 +63,8 @@ public class BinarySearchTreeApp {
 //		t.preorder();
 //		t.central();
 //		t.postorder();
-		System.out.println(t.getLeaf());
-		System.out.println(t.getPath(5, 15));
+		//System.out.println(t.getLeaf());
+		//System.out.println(t.getPath(5, 15));
 	}
 
 	
