@@ -1,20 +1,20 @@
 package bst_AVL_RBT;
 
-//AvlTree class
-//
-//CONSTRUCTION: with no initializer
-//
-//******************PUBLIC OPERATIONS*********************
-//void insert( x )       --> Insert x
-//void remove( x )       --> Remove x (unimplemented)
-//boolean contains( x )  --> Return true if x is present
-//Comparable findMin( )  --> Return smallest item
-//Comparable findMax( )  --> Return largest item
-//boolean isEmpty( )     --> Return true if empty; else false
-//void makeEmpty( )      --> Remove all items
-//void printTree( )      --> Print tree in sorted order
-//******************ERRORS********************************
-//Throws UnderflowException as appropriate
+/*
+ * //AvlTree class
+ CONSTRUCTION: with no initializer
+ ******************PUBLIC OPERATIONS*********************
+ void insert( x )       --> Insert x
+ void remove( x )       --> Remove x (unimplemented)
+ boolean contains( x )  --> Return true if x is present
+ Comparable findMin( )  --> Return smallest item
+ Comparable findMax( )  --> Return largest item
+ boolean isEmpty( )     --> Return true if empty; else false
+ void makeEmpty( )      --> Remove all items
+ void printTree( )      --> Print tree in sorted order
+ ******************ERRORS********************************
+ Throws UnderflowException as appropriate * 
+ */
 
 /**
  * Implements an AVL tree. Note that all "matching" is based on the compareTo
@@ -225,8 +225,7 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
 	 * Rotate binary tree node with left child. For AVL trees, this is a single
 	 * rotation for case 1. Update heights, then return new root.
 	 */
-	private AvlNode<AnyType> 
-	              rotateWithLeftChild(AvlNode<AnyType> k2) {
+	private AvlNode<AnyType> rotateWithLeftChild(AvlNode<AnyType> k2) {
 		AvlNode<AnyType> k1 = k2.left;
 		k2.left = k1.right;
 		k1.right = k2;
@@ -239,8 +238,7 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
 	 * Rotate binary tree node with right child. For AVL trees, this is a single
 	 * rotation for case 4. Update heights, then return new root.
 	 */
-	private AvlNode<AnyType> 
-	                         rotateWithRightChild(AvlNode<AnyType> k1) {
+	private AvlNode<AnyType> rotateWithRightChild(AvlNode<AnyType> k1) {
 		AvlNode<AnyType> k2 = k1.right;
 		k1.right = k2.left;
 		k2.left = k1;
@@ -254,8 +252,7 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
 	 * then node k3 with new left child. For AVL trees, this is a double
 	 * rotation for case 2. Update heights, then return new root.
 	 */
-	private AvlNode<AnyType> 
-	             doubleWithLeftChild(AvlNode<AnyType> k3) {
+	private AvlNode<AnyType> doubleWithLeftChild(AvlNode<AnyType> k3) {
 		k3.left = rotateWithRightChild(k3.left);
 		return rotateWithLeftChild(k3);
 	}
@@ -265,8 +262,7 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
 	 * then node k1 with new right child. For AVL trees, this is a double
 	 * rotation for case 3. Update heights, then return new root.
 	 */
-	private AvlNode<AnyType> 
-	             doubleWithRightChild(AvlNode<AnyType> k1) {
+	private AvlNode<AnyType> doubleWithRightChild(AvlNode<AnyType> k1) {
 		k1.right = rotateWithLeftChild(k1.right);
 		return rotateWithRightChild(k1);
 	}
@@ -293,24 +289,4 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
 	/** The tree root. */
 	private AvlNode<AnyType> root;
 
-	// Test program
-	public static void main(String[] args) {
-		AvlTree<Integer> t = new AvlTree<Integer>();
-		final int NUMS = 4000;
-		final int GAP = 37;
-
-		System.out.println("Checking... (no more output means success)");
-
-		for (int i = GAP; i != 0; i = (i + GAP) % NUMS)
-			t.insert(i);
-
-		if (NUMS < 40)
-			t.printTree();
-		if (t.findMin() != 1 || t.findMax() != NUMS - 1)
-			System.out.println("FindMin or FindMax error!");
-
-		for (int i = 1; i < NUMS; i++)
-			if (!t.contains(i))
-				System.out.println("Find error1!");
-	}
 }
