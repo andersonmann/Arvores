@@ -19,6 +19,9 @@ public class BinarySearchTreeApp {
 		bst.add(10);
 		System.out.println(bst.size());
 		System.out.println(bst);
+		bst.add(50);
+		System.out.println(bst.size());
+		System.out.println(bst);
 
 		System.out.println(bst.contains(20));
 		System.out.println(bst.contains(21));
@@ -26,8 +29,9 @@ public class BinarySearchTreeApp {
 		System.out.println(bst.getLevelByValue(30));
 		System.out.println(bst.getLevelByValue(20));
 
-		System.out.println(bst.getHeightByValue(30));
-		System.out.println(bst.getHeightByValue(20));
+		System.out.println("Altura:" + bst.getHeightByValue(30));
+		System.out.println("Altura:" + bst.getHeightByValue(20));
+		System.out.println("Nodo pai:" + bst.getParent(50));
 		
 	}
 

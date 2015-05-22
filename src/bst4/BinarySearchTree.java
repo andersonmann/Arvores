@@ -82,11 +82,9 @@ public class BinarySearchTree {
 		if (value == r.value)
 			return level;
 		else if (value < r.value)
-			return getLevelFor(r.left, level + 1, value);
-		// else if (value > r.value)
+			return getLevelFor(r.left, level + 1, value);		
 		else
 			return getLevelFor(r.right, level + 1, value);
-
 	}
 
 	public int getHeightFor(int value) {
@@ -96,12 +94,10 @@ public class BinarySearchTree {
 	private int getHeightFor(Node r, int value) {
 		if (r == null)
 			throw new RuntimeException("ERRO: nodo não encontrado!");
-
 		if (value == r.value) {
 			return h(r);
 		} else if (value < r.value)
-			return getHeightFor(r.left, value);
-		// else if (value > r.value)
+			return getHeightFor(r.left, value);		
 		else
 			return getHeightFor(r.right, value);
 	}
@@ -109,10 +105,8 @@ public class BinarySearchTree {
 	private int h(Node r) {
 		if (r == null)
 			return -1;
-
 		int hl = h(r.left);
 		int hr = h(r.right);
-
 		return Math.max(hl, hr) + 1;
 	}
 
@@ -125,9 +119,7 @@ public class BinarySearchTree {
 	private void getPathTo(Node r, ArrayList<Integer> result, int value) {
 		if (r == null)
 			throw new RuntimeException("ERRO: valor não encontrado!");
-
 		result.add(r.value);
-
 		if (value != r.value) {
 			if (value < r.value)
 				getPathTo(r.left, result, value);
@@ -196,15 +188,11 @@ public class BinarySearchTree {
 	private int getParent(Node r, Node p, int value) {
 		if (r == null)
 			throw new RuntimeException("ERRO: nodo não encontrado!");
-
 		if (r.value == value) {
-
 			if (p == null)
 				throw new RuntimeException(
 						"ERRO: nodo encontrado (raiz) não tem nodo pai!");
-
 			return p.value;
-
 		} else if (value < r.value)
 			return getParent(r.left, r, value);
 		else
@@ -356,9 +344,6 @@ public class BinarySearchTree {
 	}
 
 	private boolean check(Node r, int min, int max) {
-		// if (r == null)
-		// return true;
-		//
 		return r == null || r.value > min && r.value < max
 				&& check(r.left, min, r.value) && check(r.right, r.value, max);
 	}

@@ -28,7 +28,7 @@ public class BinarySearchTree {
 	public int size() {
 		return count;
 	}
-	
+
 	public void add(int value) {
 		root = add(root, value);
 	}
@@ -50,12 +50,15 @@ public class BinarySearchTree {
 	}
 
 	private boolean contains(Node node, int value) {
-		if (node == null)
+		if (node == null) {
 			return false;
-		if (value < node.value)
+		}
+		if (value < node.value) {
 			return contains(node.left, value);
-		if (value > node.value)
+		}
+		if (value > node.value) {
 			return contains(node.right, value);
+		}
 		return true;
 	}
 
@@ -69,7 +72,7 @@ public class BinarySearchTree {
 		if (value < node.value)
 			return getLevelByValue(node.left, value, level + 1);
 		if (value > node.value)
-			return getLevelByValue(node.right, value, +1);
+			return getLevelByValue(node.right, value, level + 1);
 		return level;
 	}
 
@@ -92,7 +95,7 @@ public class BinarySearchTree {
 			return -1;
 		return 1 + Math.max(h(node.left), h(node.right));
 	}
-	
+
 	public String toString() {
 		return toString(root);
 	}
@@ -103,7 +106,6 @@ public class BinarySearchTree {
 		return node.value + " " + toString(node.left) + " "
 				+ toString(node.right);
 	}
-	
 
 	/**
 	 * Retorna o valor armazenado no nodo pai do nodo que contém o valor value.

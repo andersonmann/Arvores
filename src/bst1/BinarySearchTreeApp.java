@@ -14,7 +14,7 @@ public class BinarySearchTreeApp {
 		System.out.println(t.contains(100));
 		System.out.println(t.contains(30));
 
-		System.out.println(t.getDegreeFor(30));		
+		System.out.println(t.getDegreeFor(20));		
 		
 	}
 
